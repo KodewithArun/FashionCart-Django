@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # registering the new app
     "accounts",
     "category",
+    "store",
 ]
 
 MIDDLEWARE = [
@@ -66,6 +67,8 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                # i am using a custom context processor of category app to show categories in navbar
+                "category.context_processors.menu_links",
             ],
         },
     },
@@ -136,3 +139,7 @@ STATICFILES_DIRS = [BASE_DIR / "fashioncart/static"]
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# for media files by Arun
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
