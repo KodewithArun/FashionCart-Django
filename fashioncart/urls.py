@@ -30,5 +30,8 @@ urlpatterns = [
     # include store app urls here by Arun
     path("store/", include("store.urls")),
     
+    # include carts app urls here by Arun
+    path("cart/", include("carts.urls")),
+    
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

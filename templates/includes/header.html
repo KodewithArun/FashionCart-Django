@@ -1,94 +1,399 @@
 {% load static %}
+
+<style>
+/* === CLEAN PROFESSIONAL HEADER STYLES === */
+
+/* Top Bar */
+.top-bar {
+    background: #fafafa;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 10px 0;
+    font-size: 13px;
+}
+
+.top-bar .nav-link {
+    color: #555;
+    padding: 0.3rem 1rem;
+    font-weight: 400;
+    transition: color 0.2s;
+}
+
+.top-bar .nav-link:hover {
+    color: #000;
+}
+
+.top-bar .nav-link i {
+    margin-right: 6px;
+    font-size: 12px;
+}
+
+.top-bar .dropdown-menu {
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border-radius: 0;
+    padding: 0;
+}
+
+.top-bar .dropdown-item {
+    padding: 8px 16px;
+    font-size: 13px;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.top-bar .dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.top-bar .dropdown-item:hover {
+    background: #f9f9f9;
+}
+
+/* Main Header */
+.header-main {
+    background: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 20px 0;
+}
+
+.logo {
+    max-height: 40px;
+    transition: opacity 0.2s;
+}
+
+.brand-wrap:hover .logo {
+    opacity: 0.85;
+}
+
+/* Category Dropdown */
+.category-dropdown {
+    width: 100%;
+}
+
+.btn-category {
+    background: #ffffff;
+    border: 1px solid #d0d0d0;
+    color: #333;
+    padding: 10px 20px;
+    font-weight: 500;
+    font-size: 14px;
+    width: 100%;
+    text-align: left;
+    transition: all 0.2s;
+}
+
+.btn-category:hover,
+.btn-category:focus {
+    background: #f9f9f9;
+    border-color: #333;
+    color: #000;
+}
+
+.btn-category i {
+    margin-right: 8px;
+}
+
+.category-menu {
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-radius: 0;
+    padding: 0;
+    min-width: 100%;
+}
+
+.category-menu .dropdown-item {
+    padding: 12px 20px;
+    border-bottom: 1px solid #f5f5f5;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.category-menu .dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.category-menu .dropdown-item:hover {
+    background: #f9f9f9;
+    padding-left: 25px;
+}
+
+.category-menu .dropdown-divider {
+    margin: 0;
+    border-color: #e0e0e0;
+}
+
+/* Search Box */
+.search-form {
+    border: 1px solid #d0d0d0;
+    display: flex;
+}
+
+.search-input {
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    flex: 1;
+}
+
+.search-input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.btn-search {
+    background: #333;
+    border: none;
+    color: #fff;
+    padding: 10px 24px;
+    font-weight: 500;
+    font-size: 14px;
+    transition: background 0.2s;
+    border-left: 1px solid #d0d0d0;
+}
+
+.btn-search:hover {
+    background: #000;
+}
+
+.btn-search i {
+    margin-right: 5px;
+}
+
+/* Store Button */
+.btn-store {
+    background: #ffffff;
+    border: 1px solid #d0d0d0;
+    color: #333;
+    padding: 10px 24px;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-store:hover {
+    background: #333;
+    border-color: #333;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-store i {
+    margin-right: 6px;
+}
+
+/* User Widget */
+.user-section {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.user-account {
+    text-align: right;
+    padding-right: 20px;
+    border-right: 1px solid #e0e0e0;
+}
+
+.user-greeting {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.user-links a {
+    color: #333;
+    font-weight: 500;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.user-links a:hover {
+    color: #000;
+}
+
+.user-links .separator {
+    color: #d0d0d0;
+    margin: 0 8px;
+}
+
+/* Cart */
+.cart-container {
+    position: relative;
+}
+
+.cart-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid #d0d0d0;
+    color: #333;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+.cart-link:hover {
+    background: #333;
+    border-color: #333;
+    color: #fff;
+}
+
+.cart-count {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: #333;
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    min-width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.cart-link:hover .cart-count {
+    background: #fff;
+    color: #333;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .user-account {
+        border-right: none;
+        padding-right: 0;
+        text-align: left;
+        margin-bottom: 15px;
+    }
     
-<header class="section-header">
-<nav class="navbar p-md-0 navbar-expand-sm navbar-light border-bottom">
-<div class="container">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTop4" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarTop4">
-    <ul class="navbar-nav mr-auto">
-    	<li class="nav-item dropdown">
-		 	<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">   Language </a>
-		    <ul class="dropdown-menu small">
-				<li><a class="dropdown-item" href="#">English</a></li>
-				<li><a class="dropdown-item" href="#">Arabic</a></li>
-				<li><a class="dropdown-item" href="#">Russian </a></li>
-		    </ul>
-		</li>
-		<li class="nav-item dropdown">
-			<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> USD </a>
-			<ul class="dropdown-menu small">
-				<li><a class="dropdown-item" href="#">NRP</a></li>
-				<li><a class="dropdown-item" href="#">AUD</a></li>
-		    </ul>
-		</li>
-    </ul>
-    <ul class="navbar-nav">
-		<li><a href="#" class="nav-link"> <i class="fa fa-envelope"></i> Email </a></li>
-		<li><a href="#" class="nav-link"> <i class="fa fa-phone"></i> Call us </a></li>
-	</ul> <!-- list-inline //  -->
-  </div> <!-- navbar-collapse .// -->
-</div> <!-- container //  -->
-</nav>
+    .user-section {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+    
+    .header-main {
+        padding: 15px 0;
+    }
+}
 
-<section class="header-main border-bottom">
-	<div class="container">
-<div class="row align-items-center">
-	<div class="col-lg-2 col-md-3 col-6">
-		<a href="{% url 'home' %}" class="brand-wrap">
-			<img class="logo" src="{% static 'images/logo.png' %}">
-		</a> <!-- brand-wrap.// -->
-	</div>
-	<div class="col-lg col-sm col-md col-6 flex-grow-0">
-		<div class="category-wrap dropdown d-inline-block float-right">
-			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> 
-				<i class="fa fa-bars"></i> All category 
-			</button>
-			<div class="dropdown-menu">
-				<a class="dropdown-item" href="{% url 'store' %}">All Products</a>
-				{% for category in links %}
-					<a class="dropdown-item" href="{{ category.get_absolute_url }}">{{ category.category_name }}</a>
-				{% endfor %}
-			</div>
-		</div>  <!-- category-wrap.// -->
-	</div> <!-- col.// -->
-	<a href="{% url 'store' %}" class="btn btn-outline-primary">Store</a>
-	<div class="col-lg  col-md-6 col-sm-12 col">
-		<form action="#" class="search">
-			<div class="input-group w-100">
-			    <input type="text" class="form-control" style="width:60%;" placeholder="Search">
-			    
-			    <div class="input-group-append">
-			      <button class="btn btn-primary" type="submit">
-			        <i class="fa fa-search"></i>
-			      </button>
-			    </div>
-		    </div>
-		</form> <!-- search-wrap .end// -->
-	</div> <!-- col.// -->
-	<div class="col-lg-3 col-sm-6 col-8 order-2 order-lg-3">
-				<div class="d-flex justify-content-end mb-3 mb-lg-0">
-					<div class="widget-header">
-						<small class="title text-muted">Welcome guest!</small>
-						<div> 
-							<a href="./signin.html">Sign in</a> <span class="dark-transp"> | </span>
-							<a href="./register.html"> Register</a>
-						</div>
-					</div>
-					<a href="./cart.html" class="widget-header pl-3 ml-3">
-						<div class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></div>
-						<span class="badge badge-pill badge-danger notify">0</span>
-					</a>
-				</div> <!-- widgets-wrap.// -->
-			</div> <!-- col.// -->
-</div> <!-- row.// -->
-	</div> <!-- container.// -->
-</section> <!-- header-main .// -->
+@media (max-width: 767px) {
+    .search-form {
+        margin: 15px 0;
+    }
+    
+    .btn-store {
+        width: 100%;
+        margin-top: 10px;
+        text-align: center;
+    }
+}
+</style>
+    
+<header class="site-header">
+    <!-- Top Bar -->
+    <nav class="navbar navbar-expand-sm navbar-light top-bar">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topBarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="topBarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-globe"></i>English
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">English</a></li>
+                            <li><a class="dropdown-item" href="#">Arabic</a></li>
+                            <li><a class="dropdown-item" href="#">Russian</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-dollar-sign"></i>USD
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">USD</a></li>
+                            <li><a class="dropdown-item" href="#">NPR</a></li>
+                            <li><a class="dropdown-item" href="#">AUD</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li><a href="mailto:info@fashioncart.com" class="nav-link"><i class="fa fa-envelope"></i>info@fashioncart.com</a></li>
+                    <li><a href="tel:+1234567890" class="nav-link"><i class="fa fa-phone"></i>+1 234 567 890</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
+    <!-- Main Header -->
+    <section class="header-main">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Logo -->
+                <div class="col-lg-2 col-md-3 col-6 mb-3 mb-md-0">
+                    <a href="{% url 'home' %}" class="brand-wrap">
+                        <img class="logo" src="{% static 'images/logo.png' %}" alt="FashionCart">
+                    </a>
+                </div>
 
+                <!-- Categories -->
+                <div class="col-lg-2 col-md-3 col-6 mb-3 mb-md-0">
+                    <div class="dropdown category-dropdown">
+                        <button type="button" class="btn btn-category dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-bars"></i>Categories
+                        </button>
+                        <div class="dropdown-menu category-menu">
+                            <a class="dropdown-item" href="{% url 'store' %}">All Products</a>
+                            <div class="dropdown-divider"></div>
+                            {% for category in links %}
+                                <a class="dropdown-item" href="{{ category.get_absolute_url }}">{{ category.category_name }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
 
-</header> <!-- section-header.// -->
+                <!-- Search -->
+                <div class="col-lg-5 col-md-12 mb-3 mb-lg-0">
+                    <form action="#" method="GET" class="search-form">
+                        <input type="text" name="q" class="search-input" placeholder="Search for products...">
+                        <button class="btn-search" type="submit">
+                            <i class="fa fa-search"></i>Search
+                        </button>
+                    </form>
+                </div>
+
+                <!-- User & Cart -->
+                <div class="col-lg-3 col-md-12">
+                    <div class="user-section">
+                        <div class="user-account">
+                            <span class="user-greeting">Welcome Guest</span>
+                            <div class="user-links">
+                                <a href="./signin.html">Sign In</a>
+                                <span class="separator">|</span>
+                                <a href="./register.html">Register</a>
+                            </div>
+                        </div>
+                        <div class="cart-container">
+                            <a href="./cart.html" class="cart-link">
+                                <i class="fa fa-shopping-cart"></i>
+                                <span class="cart-count">0</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</header>
 
 
 

@@ -1,23 +1,333 @@
- 
- {% load static %}
- <!-- ========================= FOOTER ========================= -->
-    <footer class="section-footer border-top">
-        <div class="container">
-            <section class="footer-bottom border-top row">
-                <div class="col-md-2">
-                    <p class="text-muted"> &copy 2019 Company name </p>
+{% load static %}
+
+<style>
+/* === CLEAN PROFESSIONAL FOOTER STYLES === */
+
+.site-footer {
+    background: #fafafa;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 60px;
+    padding: 50px 0 0;
+}
+
+.footer-main {
+    padding-bottom: 40px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.footer-column h6 {
+    color: #000;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-column h6:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background: #000;
+}
+
+.footer-about p {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.footer-links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links-list li {
+    margin-bottom: 10px;
+}
+
+.footer-links-list a {
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.2s;
+    display: inline-block;
+}
+
+.footer-links-list a:hover {
+    color: #000;
+    padding-left: 5px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.social-icon-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid #d0d0d0;
+    color: #666;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+.social-icon-link:hover {
+    background: #000;
+    border-color: #000;
+    color: #fff;
+}
+
+.newsletter-section {
+    margin-top: 20px;
+}
+
+.newsletter-text {
+    color: #666;
+    font-size: 13px;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.newsletter-form-group {
+    border: 1px solid #d0d0d0;
+    display: flex;
+}
+
+.newsletter-input {
+    border: none;
+    padding: 10px 15px;
+    font-size: 13px;
+    flex: 1;
+    background: #fff;
+}
+
+.newsletter-input:focus {
+    outline: none;
+}
+
+.newsletter-button {
+    background: #333;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    font-weight: 500;
+    font-size: 13px;
+    transition: background 0.2s;
+    cursor: pointer;
+    border-left: 1px solid #d0d0d0;
+}
+
+.newsletter-button:hover {
+    background: #000;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.contact-item i {
+    width: 20px;
+    color: #333;
+    margin-right: 10px;
+    margin-top: 2px;
+}
+
+.contact-item span {
+    color: #666;
+}
+
+.footer-bottom {
+    padding: 25px 0;
+}
+
+.copyright-text {
+    color: #888;
+    font-size: 13px;
+    margin: 0;
+}
+
+.footer-bottom-links {
+    text-align: center;
+}
+
+.footer-bottom-links a {
+    color: #666;
+    text-decoration: none;
+    font-size: 13px;
+    margin: 0 15px;
+    transition: color 0.2s;
+}
+
+.footer-bottom-links a:hover {
+    color: #000;
+}
+
+.payment-methods {
+    text-align: right;
+}
+
+.payment-icon {
+    font-size: 28px;
+    color: #888;
+    margin-left: 12px;
+    transition: color 0.2s;
+}
+
+.payment-icon:hover {
+    color: #000;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+    .footer-column {
+        margin-bottom: 30px;
+    }
+    
+    .footer-bottom-links,
+    .payment-methods {
+        text-align: center;
+        margin-top: 15px;
+    }
+    
+    .copyright-text {
+        text-align: center;
+    }
+}
+</style>
+
+<footer class="site-footer">
+    <div class="container">
+        <!-- Main Footer Content -->
+        <div class="footer-main">
+            <div class="row">
+                <!-- About Section -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-column footer-about">
+                        <h6>About FashionCart</h6>
+                        <p>Your trusted destination for quality fashion and lifestyle products. We bring you the latest trends with exceptional service.</p>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon-link" aria-label="Facebook">
+                                <i class="ri-facebook-fill"></i>
+                            </a>
+                            <a href="#" class="social-icon-link" aria-label="Twitter">
+                                <i class="ri-twitter-fill"></i>
+                            </a>
+                            <a href="#" class="social-icon-link" aria-label="Instagram">
+                                <i class="ri-instagram-fill"></i>
+                            </a>
+                            <a href="#" class="social-icon-link" aria-label="LinkedIn">
+                                <i class="ri-linkedin-fill"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-8 text-md-center">
-                    <span class="px-2">info@pixsellz.io</span>
-                    <span class="px-2">+879-332-9375</span>
-                    <span class="px-2">Street name 123, Avanue abc</span>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-column">
+                        <h6>Quick Links</h6>
+                        <ul class="footer-links-list">
+                            <li><a href="{% url 'home' %}">Home</a></li>
+                            <li><a href="{% url 'store' %}">Shop</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Blog</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="col-md-2 text-md-right text-muted">
-                    <i class="fab fa-lg fa-cc-visa"></i>
-                    <i class="fab fa-lg fa-cc-paypal"></i>
-                    <i class="fab fa-lg fa-cc-mastercard"></i>
+
+                <!-- Customer Service -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-column">
+                        <h6>Customer Care</h6>
+                        <ul class="footer-links-list">
+                            <li><a href="#">My Account</a></li>
+                            <li><a href="#">Track Order</a></li>
+                            <li><a href="#">Returns & Refunds</a></li>
+                            <li><a href="#">Shipping Info</a></li>
+                            <li><a href="#">FAQs</a></li>
+                        </ul>
+                    </div>
                 </div>
-            </section>
-        </div><!-- //container -->
-    </footer>
-    <!-- ========================= FOOTER END // ========================= -->
+
+                <!-- Policies -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-column">
+                        <h6>Policies</h6>
+                        <ul class="footer-links-list">
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Refund Policy</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                            <li><a href="#">Disclaimer</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Newsletter & Contact -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-column">
+                        <h6>Stay Connected</h6>
+                        <div class="newsletter-section">
+                            <p class="newsletter-text">Subscribe to receive updates on new products and exclusive offers.</p>
+                            <form class="newsletter-form-group" method="POST">
+                                <input type="email" class="newsletter-input" placeholder="Your email" required>
+                                <button type="submit" class="newsletter-button">Subscribe</button>
+                            </form>
+                        </div>
+                        <div style="margin-top: 25px;">
+                            <div class="contact-item">
+                                <i class="ri-mail-line"></i>
+                                <span>info@fashioncart.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="ri-phone-line"></i>
+                                <span>+1 (234) 567-890</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="ri-map-pin-line"></i>
+                                <span>123 Fashion St, NY 10001</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="row align-items-center">
+                <div class="col-md-4 col-12">
+                    <p class="copyright-text">&copy; 2025 FashionCart. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-4 col-12 footer-bottom-links">
+                    <a href="#">Sitemap</a>
+                    <a href="#">Support</a>
+                    <a href="#">Careers</a>
+                </div>
+                <div class="col-md-4 col-12 payment-methods">
+                    <i class="fab fa-cc-visa payment-icon"></i>
+                    <i class="fab fa-cc-mastercard payment-icon"></i>
+                    <i class="fab fa-cc-paypal payment-icon"></i>
+                    <i class="fab fa-cc-amex payment-icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

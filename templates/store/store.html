@@ -24,7 +24,7 @@
 	<article class="filter-group">
 		<header class="card-header">
 			<a href="#" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" class="">
-				<i class="icon-control fa fa-chevron-down"></i>
+				<i class="icon-control ri-arrow-down-s-line"></i>
 				<h6 class="title">Categories</h6>
 			</a>
 		</header>
@@ -44,7 +44,7 @@
 	<article class="filter-group">
 		<header class="card-header">
 			<a href="#" data-toggle="collapse" data-target="#collapse_4" aria-expanded="true" class="">
-				<i class="icon-control fa fa-chevron-down"></i>
+				<i class="icon-control ri-arrow-down-s-line"></i>
 				<h6 class="title">Sizes </h6>
 			</a>
 		</header>
@@ -76,7 +76,7 @@
 	<article class="filter-group">
 		<header class="card-header">
 			<a href="#" data-toggle="collapse" data-target="#collapse_3" aria-expanded="true" class="">
-				<i class="icon-control fa fa-chevron-down"></i>
+				<i class="icon-control ri-arrow-down-s-line"></i>
 				<h6 class="title">Price range </h6>
 			</a>
 		</header>
@@ -110,7 +110,7 @@
 					</select>
 				</div>
 				</div> <!-- form-row.// -->
-				<button class="btn btn-block btn-primary">Apply</button>
+				<button class="btn btn-block btn-dark"><i class="ri-check-line"></i> Apply</button>
 			</div><!-- card-body.// -->
 		</div>
 	</article> <!-- filter-group .// -->
@@ -131,17 +131,19 @@
     {% for product in products %}
 	<div class="col-md-4">
 		<figure class="card card-product-grid">
-			<div class="img-wrap"> 
+			<a href="{{ product.get_url }}" class="img-wrap">
+				<div class="img-wrap"> 
 				<img src="{{ product.images.url }}">
-			</div> <!-- img-wrap.// -->
+			</div>
+			</a> <!-- img-wrap.// -->
 			<figcaption class="info-wrap">
 				<div class="fix-height">
-					<a href="./product-detail.html" class="title">{{ product.product_name }}</a>
+					<a href="{{ product.get_url }}" class="title">{{ product.product_name }}</a>
 					<div class="price-wrap mt-2">
 						<span class="price">${{ product.price }}</span>
 					</div> <!-- price-wrap.// -->
 				</div>
-				<a href="#" class="btn btn-block btn-primary">Add to cart </a>
+				<a href="#" class="btn btn-block btn-dark"><i class="ri-shopping-cart-line"></i> Add to cart </a>
 			</figcaption>
 		</figure>
 	</div> <!-- col.// -->
