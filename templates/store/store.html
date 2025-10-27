@@ -143,7 +143,7 @@
 						<span class="price">${{ product.price }}</span>
 					</div> <!-- price-wrap.// -->
 				</div>
-				<a href="#" class="btn btn-block btn-dark"><i class="ri-shopping-cart-line"></i> Add to cart </a>
+				<a href="{% url 'add_to_cart' product.id %}" class="btn btn-block btn-dark"><i class="ri-shopping-cart-line"></i> Add to cart </a>
 			</figcaption>
 		</figure>
 	</div> <!-- col.// -->
@@ -151,14 +151,14 @@
 </div> <!-- row end.// -->
 
 
-<nav class="mt-4" aria-label="Page navigation sample">
-  <ul class="pagination">
-    <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
-    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-  </ul>
+<nav class="mt-4 d-flex justify-content-center" aria-label="Page navigation sample">
+	<ul class="pagination">
+		<li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+		<li class="page-item active"><a class="page-link bg-dark border-dark" href="#">1</a></li>
+		<li class="page-item"><a class="page-link" href="#">2</a></li>
+		<li class="page-item"><a class="page-link" href="#">3</a></li>
+		<li class="page-item"><a class="page-link" href="#">Next</a></li>
+	</ul>
 </nav>
 
 	</main> <!-- col.// -->

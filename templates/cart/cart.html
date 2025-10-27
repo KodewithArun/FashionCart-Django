@@ -8,7 +8,16 @@
 <div class="container">
 
 <!-- ============================ COMPONENT 1 ================================= -->
-
+{% if not cart_items %}
+<!-- make a clean ui for cart is empty -->
+<div class="text-center py-5">
+		<i class="ri-shopping-cart-line" style="font-size: 64px; color: #ccc;"></i>
+		<p class="mt-3 text-muted">Your cart is empty</p>
+		<a href="{% url 'store' %}" class="btn btn-dark mt-2">
+			<i class="ri-shopping-bag-line"></i> Start Shopping
+		</a>
+</div>
+{% else %}
 <div class="row">
 	<aside class="col-lg-9">
 <div class="card">
@@ -22,13 +31,14 @@
 </tr>
 </thead>
 <tbody>
+	{% for item in cart_items %}
 <tr>
 	<td>
 		<figure class="itemside align-items-center">
-			<div class="aside"><img src="./images/items/11.jpg" class="img-sm"></div>
+			<div class="aside"><img src="{{item.product.images.url}}" class="img-sm"></div>
 			<figcaption class="info">
-				<a href="#" class="title text-dark">Camera Canon EOS M50 Kit</a>
-				<p class="text-muted small">Matrix: 25 Mpx <br> Brand: Canon</p>
+				<a href="#" class="title text-dark">{{item.product.product_name}}</a>
+				<p class="text-muted small">Color: 25 Mpx <br> Size: Canon</p>
 			</figcaption>
 		</figure>
 	</td>
@@ -37,93 +47,29 @@
 					<div class="col"> 
 						<div class="input-group input-spinner">
 							<div class="input-group-prepend">
-							<button class="btn btn-light" type="button" id="button-plus"> <i class="ri-subtract-line"></i> </button>
+							<a href="{% url 'remove_from_cart' item.product.id %}" class="btn btn-light" type="button" id="button-plus"> <i class="ri-subtract-line"></i> </a>
 							</div>
-							<input type="text" class="form-control"  value="1">
+							<input type="text" class="form-control"  value="{{item.quantity}}">
 							<div class="input-group-append">
-							<button class="btn btn-light" type="button" id="button-minus"> <i class="ri-add-line"></i> </button>
+							<a href="{% url 'add_to_cart' item.product.id %}" class="btn btn-light" type="button" id="button-minus"> <i class="ri-add-line"></i> </a>
 							</div>
 						</div> <!-- input-group.// -->
 					</div> <!-- col.// -->
 	</td>
 	<td> 
 		<div class="price-wrap"> 
-			<var class="price">$1156.00</var> 
-			<small class="text-muted"> $315.20 each </small> 
+			<var class="price">{{item.subtotal}}</var>
+			<small class="text-muted">{{item.product.price}} each</small>
 		</div> <!-- price-wrap .// -->
 	</td>
 	<td class="text-right"> 
-	<a href="" class="btn btn-danger"> <i class="ri-delete-bin-line"></i> Remove</a>
+	<a href="{% url 'delete_from_cart' item.product.id %}" class="btn btn-danger"> <i class="ri-delete-bin-line"></i> Remove</a>
 	</td>
 </tr>
-<tr>
-	<td>
-		<figure class="itemside align-items-center">
-			<div class="aside"><img src="./images/items/10.jpg" class="img-sm"></div>
-			<figcaption class="info">
-				<a href="#" class="title text-dark">ADATA Premier ONE microSDXC</a>
-				<p class="text-muted small">Size: 256 GB  <br> Brand: ADATA </p>
-			</figcaption>
-		</figure>
-	</td>
-	<td> 
-		<!-- col.// -->
-					<div class="col"> 
-						<div class="input-group input-spinner">
-							<div class="input-group-prepend">
-							<button class="btn btn-light" type="button" id="button-plus"> <i class="ri-subtract-line"></i> </button>
-							</div>
-							<input type="text" class="form-control"  value="1">
-							<div class="input-group-append">
-							<button class="btn btn-light" type="button" id="button-minus"> <i class="ri-add-line"></i> </button>
-							</div>
-						</div> <!-- input-group.// -->
-					</div> <!-- col.// -->
-	</td>
-	<td> 
-		<div class="price-wrap"> 
-			<var class="price">$149.97</var> 
-			<small  class="text-muted"> $75.00 each </small>  
-		</div> <!-- price-wrap .// -->
-	</td>
-	<td class="text-right"> 
-	<a href="" class="btn btn-danger"> <i class="ri-delete-bin-line"></i> Remove</a>
-	</td>
-</tr>
-<tr>
-	<td>
-		<figure class="itemside align-items-center">
-			<div class="aside"><img src="./images/items/9.jpg" class="img-sm"></div>
-			<figcaption class="info">
-				<a href="#" class="title text-dark">Logitec headset for gaming</a>
-				<p class="small text-muted">Version: CUH-ZCT2E  <br> Brand: Sony</p>
-			</figcaption>
-		</figure>
-	</td>
-	<td> 
-		<!-- col.// -->
-					<div class="col"> 
-						<div class="input-group input-spinner">
-							<div class="input-group-prepend">
-							<button class="btn btn-light" type="button" id="button-plus"> <i class="ri-subtract-line"></i> </button>
-							</div>
-							<input type="text" class="form-control"  value="1">
-							<div class="input-group-append">
-							<button class="btn btn-light" type="button" id="button-minus"> <i class="ri-add-line"></i> </button>
-							</div>
-						</div> <!-- input-group.// -->
-					</div> <!-- col.// -->
-	</td>
-	<td> 
-		<div class="price-wrap"> 
-			<var class="price">$98.00</var> 
-			<small class="text-muted"> $578.00 each</small> 
-		</div> <!-- price-wrap .// -->
-	</td>
-	<td class="text-right"> 
-		<a href="" class="btn btn-danger"> <i class="ri-delete-bin-line"></i> Remove</a>
-	</td>
-</tr>
+
+{% endfor %}
+
+
 </tbody>
 </table>
 </div> <!-- card.// -->
@@ -135,22 +81,22 @@
 		<div class="card-body">
 			<dl class="dlist-align">
 			  <dt>Total price:</dt>
-			  <dd class="text-right">$69.97</dd>
+			  <dd class="text-right">$ {{total }}</dd>
 			</dl>
 			<dl class="dlist-align">
 			  <dt>Tax:</dt>
-			  <dd class="text-right"> $10.00</dd>
+			  <dd class="text-right"> ${{ tax }}</dd>
 			</dl>
 			<dl class="dlist-align">
 			  <dt>Total:</dt>
-			  <dd class="text-right text-dark b"><strong>$59.97</strong></dd>
+			  <dd class="text-right text-dark b"><strong>$ {{ grand_total }}</strong></dd>
 			</dl>
 			<hr>
 			<p class="text-center mb-3">
 				<img src="{% static './images/misc/payments.png' %}" height="26">
 			</p>
 			<a href="./place-order.html" class="btn btn-dark btn-block"> <i class="ri-shopping-bag-line"></i> Checkout </a>
-			<a href="./store.html" class="btn btn-light btn-block"><i class="ri-arrow-left-line"></i> Continue Shopping</a>
+			<a href="{% url 'store' %}" class="btn btn-light btn-block"><i class="ri-arrow-left-line"></i> Continue Shopping</a>
 		</div> <!-- card-body.// -->
 		</div> <!-- card.// -->
 
@@ -158,6 +104,7 @@
 
 
 </div> <!-- row.// -->
+{% endif %}
 <!-- ============================ COMPONENT 1 END .// ================================= -->
 
 </div> <!-- container .//  -->
